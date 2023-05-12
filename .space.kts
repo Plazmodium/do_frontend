@@ -3,7 +3,7 @@ import jetbrains.space.vcs.checkout.GitCheckout
 import jetbrains.space.vcs.checkout.GitHubCheckout
 
 spaceApplication {
-
+    
     // Define the deployment configuration for the Angular app
     deployment("angular-deployment") {
         spec {
@@ -11,8 +11,8 @@ spaceApplication {
                 name = "angular-container"
                 image = "node:14-alpine"
                 command = "npm"
-                args = listOf("start")
-                ports = listOf(4200)
+                args = listOf("run", "build")
+                ports = emptyList()
                 env = mapOf(
                     "NODE_ENV" to "production"
                 )
@@ -21,7 +21,7 @@ spaceApplication {
         workspace {
             checkout(GitHubCheckout(
                 "jetbrains",
-                "do_frontend",
+                "angular-sample-app",
                 branch = "main",
                 readOnly = true
             ))
@@ -37,10 +37,19 @@ spaceApplication {
         }
         workspace {
             checkout(GitCheckout(
-                repository = "https://github.com/Plazmodium/do_frontend.git",
+                repository = "https://github.com/jetbrains/angular-sample-app.git",
                 branch = "dev",
                 readOnly = true
             ))
+        }
+        // Firebase Hosting deploy
+        deploy {
+            script = """
+                npm install -g firebase-tools
+                firebase login --no-localhost --ci
+                cd ./dist/angular-sample-app
+                firebase deploy --only hosting --project <dev-firebase-project-id>
+            """
         }
     }
     
@@ -53,10 +62,19 @@ spaceApplication {
         }
         workspace {
             checkout(GitCheckout(
-                repository = "https://github.com/Plazmodium/do_frontend.git",
+                repository = "https://github.com/jetbrains/angular-sample-app.git",
                 branch = "staging",
                 readOnly = true
             ))
+        }
+        // Firebase Hosting deploy
+        deploy {
+            script = """
+                npm install -g firebase-tools
+                firebase login --no-localhost --ci
+                cd ./dist/angular-sample-app
+                firebase deploy --only hosting --project <staging-firebase-project-id>
+            """
         }
     }
     
@@ -69,10 +87,19 @@ spaceApplication {
         }
         workspace {
             checkout(GitCheckout(
-                repository = "https://github.com/Plazmodium/do_frontend.git,
+                repository = "https://github.com/jetbrains/angular-sample-app.git",
                 branch = "main",
                 readOnly = true
             ))
+        }
+        // Firebase Hosting deploy
+        deploy {
+            script = """
+                npm install -g firebase-tools
+                firebase login --no-localhost --ci
+                cd ./dist/angular-sample-app
+                firebase deploy --only hosting --project <prod-firebase-project-id>
+            """
         }
     }
 }
