@@ -82,14 +82,14 @@
             "production": {
               "browserTarget": "do_frontend:build:production"
             },
-            "development": {
-              "browserTarget": "do_frontend:build:development"
+            "dev": {
+              "browserTarget": "do_frontend:build:dev"
             },
             "staging": {
               "browserTarget": "do_frontend:build:staging"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
