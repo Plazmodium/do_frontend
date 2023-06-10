@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeng/resources/themes/viva-dark/theme.css";
-@import "primeng/resources/primeng.css";
+@import "primeng/resources/themes/vela-blue/theme.css";
 
 body {
     font-family: var(--font-family);
