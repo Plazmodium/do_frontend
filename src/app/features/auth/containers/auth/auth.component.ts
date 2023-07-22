@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AuthComponent {
 
+  public isRegisterSelected: boolean = true;
+  public commitBtnTitle: string = "Login, I have an account";
+
+  public onChangeAccessView() {
+    this.isRegisterSelected = !this.isRegisterSelected;
+    
+    this.commitBtnTitle = !this.isRegisterSelected ? "Create an account" : "Login, I have an account";
+  }
 }

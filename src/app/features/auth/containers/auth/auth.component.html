@@ -1,11 +1,21 @@
-<div class="formgrid">
-  <div class="col">
-    <app-register></app-register>
-  </div>
-  <div class="col">
-    <app-login></app-login>
-  </div>
-</div>
+  <div class="flex flex-column align-items-center">
 
+    <h3>Dumbarton Oaks Portal</h3>
 
+    <div *ngIf="isRegisterSelected; else showLogin" class="w-4">
+      <app-register></app-register>
+    </div>
+
+    <ng-template #showLogin> 
+      <div class="w-4">
+        <app-login></app-login>
+      </div>
+    </ng-template>
+
+    <div>
+      <p-button (click)="onChangeAccessView()" label={{commitBtnTitle}} 
+        styleClass="p-button-link w-full"></p-button> 
+    </div>
+
+  </div>
 

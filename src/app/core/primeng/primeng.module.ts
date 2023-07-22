@@ -7,7 +7,8 @@ import { CardModule } from 'primeng/card';
 import { PasswordModule } from 'primeng/password';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
-
+import { TabViewModule } from 'primeng/tabview';
+  
 const initializeAppFactory = (primeConfig: PrimeNGConfig) => () =>
 {
   primeConfig.ripple = true;
@@ -23,7 +24,8 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () =>
     CardModule,
     PasswordModule,
     InputNumberModule,
-    InputTextModule
+    InputTextModule,
+    TabViewModule
   ],
   providers: [
     {

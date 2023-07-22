@@ -4,6 +4,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 
 import { AuthComponent } from './containers/auth/auth.component';
 import { PrimengModule } from 'src/app/core/primeng/primeng.module';
+import { CoreModule } from "../../core/core.module";
 
 import { FEATURE_COMPONENTS } from "./components"
 import { WIDGETS } from "../../shared/widgets";
@@ -16,7 +17,7 @@ import { WIDGETS } from "../../shared/widgets";
   ],
   imports: [
     CommonModule,
-    PrimengModule,
+    CoreModule,
     AuthRoutingModule,
   ]
 })

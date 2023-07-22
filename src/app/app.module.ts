@@ -9,7 +9,6 @@ import { environment } from "../environments/environment"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrimengModule } from './core/primeng/primeng.module';
 
 //FEATURES
 import { AuthModule } from './features/auth/auth.module';
@@ -19,10 +18,9 @@ import { AuthModule } from './features/auth/auth.module';
     AppComponent,
   ],
   imports: [
-    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
-    PrimengModule,
+    CommonModule,
     AppRoutingModule,
     AuthModule
     // AngularFireModule.initializeApp(environment.firebase),
