@@ -8,7 +8,8 @@ import { PasswordModule } from 'primeng/password';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { TabViewModule } from 'primeng/tabview';
-  
+import { MessagesModule } from 'primeng/messages';
+
 const initializeAppFactory = (primeConfig: PrimeNGConfig) => () =>
 {
   primeConfig.ripple = true;
@@ -25,7 +26,8 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () =>
     PasswordModule,
     InputNumberModule,
     InputTextModule,
-    TabViewModule
+    TabViewModule,
+    MessagesModule
   ],
   providers: [
     {

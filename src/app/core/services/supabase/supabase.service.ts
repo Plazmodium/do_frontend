@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthSession, createClient, SupabaseClient } from '@supabase/supabase-js'
 import { environment } from "../../../../environments/environment"
-// @ts-ignore
 import { Credentials } from "@core/models";
 
 @Injectable({
@@ -24,7 +23,7 @@ export class SupabaseService
       return this._session;
     }
 
-    const {data} = await this._supabase.auth.getSession();
+    const { data } = await this._supabase.auth.getSession();
     this._session = data.session;
     return this._session;
   }
@@ -35,5 +34,18 @@ export class SupabaseService
       email: credentials.email,
       password: credentials.password
     });
+  }
+
+  public async signIn(credentials: Credentials)
+  {
+    const { } = await this._supabase.auth.signInWithPassword({
+      email: credentials.email,
+      password: credentials.password
+    });
+  }
+
+  public async signOutAsync()
+  {
+    return await this._supabase.auth.signOut();
   }
 }

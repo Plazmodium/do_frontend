@@ -1,4 +1,4 @@
 <span class="p-float-label">
-    <input pInputText class="w-full"/>
+    <input pInputText class="w-full" [(ngModel)]="value" [required]="required" name="name" />
     <label htmlFor={{title}}>{{title | titlecase}}</label>
 </span>

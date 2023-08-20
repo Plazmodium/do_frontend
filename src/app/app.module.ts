@@ -11,7 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 //FEATURES
-import { AuthModule } from './features/auth/auth.module';
+import { CoreModule } from '@core/core.module';
+import { AuthModule } from '@features/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthModule } from './features/auth/auth.module';
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
-    AuthModule
+    CoreModule,
+    AuthModule,
     // AngularFireModule.initializeApp(environment.firebase),
     // AngularFirestoreModule
   ],

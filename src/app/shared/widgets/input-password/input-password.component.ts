@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'input-password-widget',
@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
 })
 export class InputPasswordComponent
 {
-
+  @Input()
+  public title: string = "";
+  @Input()
+  public value: string = "";
+  @Input()
+  public required: boolean = true;
+  @Input()
+  public name: string = ""
 }

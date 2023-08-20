@@ -1,24 +1,37 @@
 <p-card>
   <h3 class="w-full center">Create an Account</h3>
-  <div class="grid">
-    <div class="col m-2">
-      <input-text-widget [title]="'name'"></input-text-widget>
+  <form #myForm="ngForm">
+    <div class="grid">
+      <div class="col m-2">
+        <span class="p-float-label">
+          <input pInputText class="w-full" [(ngModel)]="credentials.name" required name="name" />
+          <label htmlFor="name">Name</label>
+        </span>
+      </div>
     </div>
-  </div>
-  <div class="grid">
-    <div class="col m-2">
-      <input-text-widget [title]="'email'"></input-text-widget>
+    <div class="grid">
+      <div class="col m-2">
+        <span class="p-float-label">
+          <input pInputText class="w-full" [(ngModel)]="credentials.email" required name="email" />
+          <label htmlFor="email">Email</label>
+        </span>
+      </div>
     </div>
-  </div>
-  <div class="grid">
-    <div class="col m-2">
-      <input-password-widget></input-password-widget>
+    <div class="grid">
+      <div class="col m-2">
+        <span class="p-float-label">
+          <p-password [feedback]="true" [(ngModel)]="credentials.password" required name="password"
+            inputStyleClass="w-full" styleClass="w-full"></p-password>
+          <label htmlFor="password">Password</label>
+        </span>
+        <small *ngIf="authResponse?.error" id="password-help" class="p-error">{{ authResponse.error?.message }}</small>
+      </div>
     </div>
-  </div>
-  <div class="grid">
-    <div class="col m-2">
-      <p-button label="Register" styleClass="w-full"></p-button>
+    <div class="grid">
+      <div class="col m-2">
+        <p-button (click)="submitForm(myForm.value)" [disabled]="myForm.invalid ?? true" label="Register"
+          styleClass="w-full"></p-button>
+      </div>
     </div>
-  </div>
+  </form>
 </p-card>
-

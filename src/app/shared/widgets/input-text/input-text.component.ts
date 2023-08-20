@@ -9,4 +9,10 @@ export class InputTextComponent
 {
   @Input()
   public title: string = "";
+  @Input()
+  public value: string = "";
+  @Input()
+  public required: boolean = false;
+  @Input()
+  public name: string = ""
 }
