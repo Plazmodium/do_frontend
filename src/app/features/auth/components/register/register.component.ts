@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthResponse } from '@supabase/supabase-js';
+
 import { Credentials } from '@core/models';
 import { FormBase } from '@shared/components';
 import { SupabaseService } from '@core/services';
-import { AuthResponse } from '@supabase/supabase-js';
 
 @Component({
   selector: 'app-register',
@@ -17,12 +18,10 @@ export class RegisterComponent extends FormBase
   public credentials: Credentials = { name: "", email: "", password: "" };
   public authResponse!: AuthResponse;
 
-  constructor(private _supabase: SupabaseService) { super(); }
+  constructor(private readonly _supabase: SupabaseService) { super(); }
 
-  protected async submitForm(formData: Credentials): Promise<void>
+  protected async onSubmitForm(formData: Credentials): Promise<void>
   {
-    console.log(formData);
     this.authResponse = await this._supabase.signUpAsync(formData);
-    console.log(this.authResponse);
   }
 }

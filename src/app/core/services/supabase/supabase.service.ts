@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthSession, createClient, SupabaseClient } from '@supabase/supabase-js'
+import { AuthChangeEvent, AuthSession, createClient, Session, SupabaseClient } from '@supabase/supabase-js'
 import { environment } from "../../../../environments/environment"
 import { Credentials } from "@core/models";
 
@@ -28,6 +28,11 @@ export class SupabaseService
     return this._session;
   }
 
+  public authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void)
+  {
+    return this._supabase.auth.onAuthStateChange(callback);
+  }
+
   public async signUpAsync(credentials: Credentials)
   {
     return await this._supabase.auth.signUp({
@@ -38,7 +43,7 @@ export class SupabaseService
 
   public async signIn(credentials: Credentials)
   {
-    const { } = await this._supabase.auth.signInWithPassword({
+    return await this._supabase.auth.signInWithPassword({
       email: credentials.email,
       password: credentials.password
     });

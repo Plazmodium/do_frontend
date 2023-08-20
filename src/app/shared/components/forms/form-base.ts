@@ -6,9 +6,9 @@ export abstract class FormBase
     {
         if (form.valid)
         {
-            this.submitForm(form.value);
+            this.onSubmitForm(form.value);
         }
     }
 
-    protected abstract submitForm(formData: any): void;
+    protected abstract onSubmitForm(formData: any): void;
 }   
