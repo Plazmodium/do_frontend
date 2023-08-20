@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { SupabaseService } from '@core/services';
 import { Session } from '@supabase/supabase-js';
 
@@ -14,9 +15,11 @@ export class AuthComponent implements OnInit
   public isRegisterSelected: boolean = true;
   public commitBtnTitle: string = "Login, I have an account";
 
-  constructor(private readonly _supabase: SupabaseService)
+  constructor(private readonly _supabase: SupabaseService, private readonly _route: ActivatedRoute)
   {
     this._supabase.authChanges((_, session) => this.session = session);
+    this._route.queryParams.subscribe(param => console.log(param));
+    // get token from url during account confirmation
   }
 
   public ngOnInit(): void
