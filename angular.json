@@ -89,13 +89,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "do_frontend:build:production"
+              "buildTarget": "do_frontend:build:production"
             },
             "dev": {
-              "browserTarget": "do_frontend:build:dev"
+              "buildTarget": "do_frontend:build:dev"
             },
             "staging": {
-              "browserTarget": "do_frontend:build:staging"
+              "buildTarget": "do_frontend:build:staging"
             }
           },
           "defaultConfiguration": "dev"
@@ -103,7 +103,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "do_frontend:build"
+            "buildTarget": "do_frontend:build"
           }
         },
         "test": {
