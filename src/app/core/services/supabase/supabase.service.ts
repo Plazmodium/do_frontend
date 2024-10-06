@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthChangeEvent, AuthSession, createClient, Session, SupabaseClient } from '@supabase/supabase-js'
-import { environment } from "../../../../environments/environment"
 import { Credentials } from "@core/models";
+import { environment } from "../../../../environments/environment"
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +37,10 @@ export class SupabaseService
   {
     return await this._supabase.auth.signUp({
       email: credentials.email,
-      password: credentials.password
+      password: credentials.password,
+      options: {
+        emailRedirectTo: ""
+      }
     });
   }
 

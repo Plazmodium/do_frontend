@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { SupabaseService } from '@core/services';
 import { Session } from '@supabase/supabase-js';
 
@@ -27,7 +28,7 @@ export class AuthComponent implements OnInit
     console.log(this.session);
   }
 
-  public onChangeAccessView(): void 
+  public onChangeAccessView(): void
   {
     this.isRegisterSelected = !this.isRegisterSelected;
 

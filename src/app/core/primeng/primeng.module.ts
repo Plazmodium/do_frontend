@@ -9,6 +9,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
 import { TabViewModule } from 'primeng/tabview';
 import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 const initializeAppFactory = (primeConfig: PrimeNGConfig) => () =>
 {
@@ -27,7 +29,8 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () =>
     InputNumberModule,
     InputTextModule,
     TabViewModule,
-    MessagesModule
+    MessagesModule,
+    ToastModule
   ],
   providers: [
     {
@@ -36,6 +39,7 @@ const initializeAppFactory = (primeConfig: PrimeNGConfig) => () =>
       deps: [PrimeNGConfig],
       multi: true,
     },
+    MessageService
   ]
 })
 export class PrimengModule { }

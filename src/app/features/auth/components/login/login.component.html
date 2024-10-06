@@ -13,10 +13,13 @@
       <div class="col m-2">
         <span class="p-float-label">
           <p-password [feedback]="true" [(ngModel)]="credentials.password" required name="password"
-            inputStyleClass="w-full" styleClass="w-full"></p-password>
+            inputStyleClass="w-full" styleClass="w-full">
+          </p-password>
           <label htmlFor="password">Password</label>
         </span>
-        <small *ngIf="authResponse?.error" id="password-help" class="p-error">{{ authResponse.error?.message }}</small>
+        <small *ngIf="authResponse?.error" id="password-help" class="p-error">
+          {{ authResponse.error?.message }}
+        </small>
       </div>
     </div>
     <div class="grid">
